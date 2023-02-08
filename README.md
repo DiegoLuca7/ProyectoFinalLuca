@@ -11,3 +11,9 @@ Desde la web se podrán visualizar las siguientes views:
 - Registro y login
 - Una vez registrado, podrás editar/actualizar tu perfil
 - Siendo admin podrás visualizar el listado de pedidos y proveedores
+
+
+
+Link del video mostrando el funcionamiento de la web
+
+https://youtu.be/_EelMtFoid4
