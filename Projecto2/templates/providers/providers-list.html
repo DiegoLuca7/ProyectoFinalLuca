@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title%}
+  Listado de Productos
+{% endblock %}
+
+
+{% block content %}     
+
+
+    <h1>Listado de Proveedores</h1>
+
+    {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+
+    <h2>Crear nuevo proveedor</h2> <a href="/providers/provider-create/" class="btn btn-primary">Crear</a>
+
+    {% endif %}
+        {% endif %}
+       {% for providers in object_list %}
+
+       {% if request.user.is_authenticated %}
+       {% if request.user.is_superuser %}
+    <div class="card" style="width: 18rem;">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_633393-MLA31611077532_072019-O.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{providers.name}}</h5>
+        <p class="card-text">Direccion {{providers.address}}</p>
+        <p>Telefono: {{providers.phone_number}}</p>
+        <a href="/providers/provider-update/{{providers.id}}/" class="btn btn-primary">Actualizar</a>
+        <a href="/providers/provider-delete/{{providers.id}}/" class="btn btn-danger">Borrar</a>
+      </div>
+    </div>
+    {% endif %}
+    <p class="card-text">Inicie sesion desde un usuario admin para ver el listado de ordenes</p>
+    {% else %}
+        
+       
+
+    {% endif %}
+
+{% endfor%}
+
+{% endblock %}

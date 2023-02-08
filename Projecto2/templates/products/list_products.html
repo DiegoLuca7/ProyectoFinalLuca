@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title%}
+  Listado de Productos
+{% endblock %}
+
+
+{% block content %}
+    <h1>Listado de Productos</h1>
+    {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          <h2>Crear nuevo producto</h2> <a href="/products/create-products/" class="btn btn-primary">Crear</a>
+         {% endif %}
+    {% endif %}
+
+    
+      {% for products in products %}
+
+
+
+    <div class="card" style="width: 15rem;">
+      <img src="https://cdn.shopify.com/s/files/1/0527/0008/6469/products/HOMBRE_1200x.jpg?v=1636565378" class="card-gr" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{products.name}}</h5>
+        <p>Talle {{products.talle}}</p>
+        <p class="card-text">Su precio es ${{products.price}}</p>
+        {% if products.stock == True %}
+            <p>Actualmente hay stock</p>
+        {% else %}
+        <p>Actualmente no hay stock</p>
+
+        {% endif%}
+         <a href="#" class="btn btn-success">Comprar</a>
+      </div>
+    </div>
+  }
+
+  
+
+    {% endfor %}
+
+{% endblock%}

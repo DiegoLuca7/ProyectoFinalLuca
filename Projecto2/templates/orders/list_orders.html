@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+  Listado de Ordenes 
+{% endblock %}
+
+{% block content %}
+
+<h1>Listado de Ordenes</h1>
+    
+
+    {% for order in orders %}
+
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
+    <div class="card" style="width: 18rem;">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_633393-MLA31611077532_072019-O.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        
+            <h5 class="card-title">El cliente {{order.client}}</h5>
+            <p class="card-text">Compró el producto {{order.product}} el {{order.creation_time}}</p>
+            <p>El pago se realizó con {{order.payment_method}}</p>
+        {% else %}
+        
+        <p class="card-text">Inicie sesion desde un usuario admin para ver el listado de ordenes</p>
+        
+        {% endif %}
+      </div>
+    </div>
+                    
+
+    {% endif %}
+
+{% endfor %}
+
+{% endblock %}

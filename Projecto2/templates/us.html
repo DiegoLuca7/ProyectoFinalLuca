@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title%}
+Nosotros
+{% endblock %}
+
+{% block content%}
+
+<p class="text-justify"></p>
+
+<h2>Mi nombre es Diego Luca, en esta página vas a poder encontrar indumentaria de tus personajes de anime favoritos !</h2>
+
+<h5>Podes realizar tu pedido aquí o sino tambien por nuestros distintos medios</h5>
+<h5> email: senseishop@gmail.com</h5>
+<h5> instagram: sensei_shop</h5>
+
+
+
+{% if message %}
+    <h2>{{message}}</h2>
+{% endif %}
+
+{% endblock%}
